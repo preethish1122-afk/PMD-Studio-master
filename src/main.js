@@ -130,6 +130,7 @@ document.querySelector('#app').innerHTML = `
       <p class="text-sub">Have a project in mind?</p>
       <dl class="info-list">
         <div><dt>Email</dt><dd><a href="mailto:${site.email}">${site.email}</a></dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+918825578825">+91 88255 78825</a></dd></div>
         <div><dt>Instagram</dt><dd><a href="${instagramUrl}" target="_blank" rel="noreferrer">${site.instagram}</a></dd></div>
         <div><dt>Studio</dt><dd>${site.location}</dd></div>
       </dl>
