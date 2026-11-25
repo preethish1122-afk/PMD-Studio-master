@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" fill="none">
+  <rect width="1200" height="760" fill="#f3f1ea"/>
+  <g stroke="#45463f" stroke-width="5">
+    <path d="M170 130h860v500H170z"/>
+    <path d="M170 410h350v220M520 130v280m0 0h290v220m0-220h220M810 410V130M170 410h160"/>
+    <path d="M330 410v-90m0 0h110m-110 0v90m190 0v-80m0 0h100m-100 0v80m190 0v-90m0 0h100m-100 0v90m220 0v-80m0 0h100m-100 0v80"/>
+    <path d="M520 270h290M330 410v220m480-220v220"/>
+  </g>
+  <g stroke="#9a9a8f" stroke-width="2">
+    <path d="M170 95h860M170 80v30m860-30v30M130 130v500m-15-500h30m-30 500h30"/>
+    <path d="M560 185h210M560 205h210M220 485h250M220 510h250M850 485h145M850 510h145"/>
+  </g>
+  <g fill="#77776e" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">
+    <text x="536" y="690">CONCEPT PLAN · PLACEHOLDER</text>
+    <text x="576" y="380">LIVING</text>
+    <text x="265" y="560">ROOM</text>
+    <text x="878" y="565">ROOM</text>
+  </g>
+</svg>

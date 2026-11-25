@@ -1,0 +1,428 @@
+@font-face {
+  font-family: 'SangBleu Empire';
+  src: url('/fonts/SangBleuEmpireTrial-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Helvetica, bundled with the site so every device shows it (files in public/fonts). */
+@font-face { font-display: swap; font-family: 'Helvetica Site'; font-style: normal; font-weight: 300; src: url('/fonts/helvetica-light.woff2') format('woff2'); }
+@font-face { font-display: swap; font-family: 'Helvetica Site'; font-style: normal; font-weight: 400; src: url('/fonts/helvetica-regular.woff2') format('woff2'); }
+@font-face { font-display: swap; font-family: 'Helvetica Site'; font-style: italic; font-weight: 400; src: url('/fonts/helvetica-oblique.woff2') format('woff2'); }
+@font-face { font-display: swap; font-family: 'Helvetica Site'; font-style: normal; font-weight: 700; src: url('/fonts/helvetica-bold.woff2') format('woff2'); }
+@font-face { font-display: swap; font-family: 'Helvetica Site'; font-style: italic; font-weight: 700; src: url('/fonts/helvetica-bold-oblique.woff2') format('woff2'); }
+
+:root {
+  --color-background-primary: #F7F6F2;
+  --color-background-secondary: #FCFBF8;
+  --color-text-primary: #292824;
+  --color-text-secondary: #858078;
+  --color-text-secondary-readable: #6B6861;
+  --color-accent: #A18B76;
+  --color-placeholder: #B7B7B7;
+  --color-border: #E2DED6;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+  --paper: var(--color-background-primary);
+  --paper-secondary: var(--color-background-secondary);
+  --ink: var(--color-text-primary);
+  --muted: var(--color-text-secondary);
+  --muted-readable: var(--color-text-secondary-readable);
+  --accent: var(--color-accent);
+  --placeholder: var(--color-placeholder);
+  --line: var(--color-border);
+  --gutter: 40px;
+  /* Main page titles match "studio." in the logo; secondary titles match the top bar links. */
+  --title-size: 31px;
+  --subtitle-size: 19px;
+  --sans: 'Helvetica Site', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --sans-light: 'Helvetica Site', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Keep secondary type tied to the current Studio subheading; primary headings use 80% of the Studio heading. */
+  --type-primary-size: calc(var(--title-size) * .8);
+  --type-secondary-size: calc(var(--title-size) * .75);
+  --studio-sub-size: var(--type-secondary-size);
+  --display: 'SangBleu Empire';
+  --serif: var(--display);
+  font-family: var(--sans-light);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); letter-spacing: -.02em; }
+@media (min-width: 769px) { html { scrollbar-gutter: stable; } }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+h1, h2, h3, p, dl, dd, figure { margin: 0; }
+img { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+
+/* Header */
+.site-header { align-items: end; color: var(--ink); display: grid; font-family: var(--sans); font-weight: 400; grid-template-columns: 1fr auto 1fr; grid-template-rows: 60px; left: 0; padding: 36px 36px 24px; position: absolute; right: 0; top: 0; z-index: 10; }
+body:not([data-view="home"]) .site-header { position: relative; }
+.wordmark { display: block; justify-self: start; line-height: 0; margin-bottom: -15px; width: 216px; }
+.wordmark img { height: auto; width: 100%; }
+.main-nav { display: flex; font-family: var(--sans); font-size: var(--subtitle-size); font-weight: 400; gap: 52px; }
+.main-nav a, .menu a, .site-footer a, .detail-back { transition: opacity .2s ease; }
+.main-nav a:hover, .main-nav a[aria-current] { opacity: .55; }
+.menu-toggle { background: none; border: 0; color: inherit; cursor: pointer; display: grid; gap: 8px; height: 32px; justify-self: end; padding: 0; place-content: center; position: relative; width: 32px; }
+.menu-toggle span { background: currentColor; display: block; height: 1.5px; transition: transform .3s ease, opacity .3s ease; width: 30px; }
+.menu-open .menu-toggle span:first-child { transform: translateY(9.5px) rotate(45deg); }
+.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+.menu-open .menu-toggle span:last-child { transform: translateY(-9.5px) rotate(-45deg); }
+
+/* Menu overlay */
+.menu { background: var(--paper); inset: 0; opacity: 0; overflow-y: auto; position: fixed; transition: opacity .35s ease, visibility .35s; visibility: hidden; z-index: 9; }
+.menu-open .menu { opacity: 1; visibility: visible; }
+.menu-open { overflow: hidden; }
+.menu-open .site-header { position: fixed; }
+.menu-inner { display: grid; gap: var(--space-5) 6vw; grid-template-columns: 2fr 1fr; padding: 180px var(--gutter) 60px; }
+@media (min-width: 769px) { .menu-toggle, .menu { display: none !important; } }
+.menu-links { display: grid; font-weight: 400; gap: 10px; justify-items: start; }
+.menu-links a { font-size: clamp(40px, 5vw, 72px); letter-spacing: -.04em; line-height: 1.05; }
+.menu-group { align-content: start; display: grid; font-size: 19px; font-weight: 400; gap: var(--space-1); justify-items: start; }
+.menu a:hover { opacity: .55; }
+.projects-nav-item { position: relative; }
+.projects-nav-item > a { display: block; }
+.projects-nav-toggle { align-items: center; background: none; border: 0; color: inherit; cursor: pointer; display: flex; height: 28px; left: 100%; padding: 0 0 0 6px; position: absolute; top: 50%; transform: translateY(-50%); width: 28px; }
+.projects-nav-toggle::before { border-bottom: 1px solid; border-right: 1px solid; content: ''; height: 4px; transform: translateY(-1px) rotate(45deg); width: 4px; }
+.projects-nav-links { background: var(--paper); display: grid; left: 0; min-width: max-content; opacity: 0; padding: 6px 12px 6px 0; position: absolute; top: 100%; visibility: hidden; z-index: 1; }
+.main-nav .projects-nav-links { padding: 11px 16px; text-align: left; z-index: 2; }
+.projects-nav-item .projects-nav-links a { color: #858078; font-size: 12px; letter-spacing: inherit; line-height: 1.2; padding: 6px 0; transition: color 150ms ease; }
+.projects-nav-item .projects-nav-links a:is(:hover, :focus, :active) { color: #292824; opacity: 1; }
+.projects-nav-toggle[aria-expanded="true"] + .projects-nav-links { opacity: 1; visibility: visible; }
+@media (prefers-reduced-motion: no-preference) {
+  .projects-nav-toggle[aria-expanded="true"] + .projects-nav-links { transition: opacity 180ms ease-out; }
+}
+.label { color: var(--muted-readable); font-size: 14px; margin-bottom: var(--space-1); }
+
+/* Home */
+.home { height: 100vh; height: 100svh; overflow: hidden; position: relative; }
+/* The homepage image layers fill the viewport, including the stable scrollbar gutter. */
+.hero-slide { height: 100vh; height: 100svh; inset: 0 auto auto 0; opacity: 0; position: fixed; transition: opacity 1.5s cubic-bezier(.4, 0, .2, 1); width: 100vw; }
+.hero-slide.is-active { opacity: 1; z-index: 1; }
+.hero-slide img { display: block; height: 100%; object-fit: cover; object-position: center center; width: 100%; }
+body[data-view="home"] .site-footer { display: none; }
+
+/* Projects */
+.projects { padding: var(--space-5) var(--gutter) var(--space-7); }
+.page-heading { align-items: baseline; display: flex; flex-wrap: wrap; gap: var(--space-2) 40px; justify-content: space-between; margin-bottom: var(--space-5); }
+.page-heading h2, .text-page h2, .detail-header h2 { font-size: var(--title-size); font-weight: 400; letter-spacing: -.045em; line-height: 1.1; }
+.page-heading h2, .text-page h2, .detail-header h2, .project-name h3 { font-family: var(--display); }
+/* Short pages (Studio, Info) keep the footer at the bottom of the screen, like the project pages. */
+body:not([data-view="home"]):not([data-view="projects"]) #app { display: flex; flex-direction: column; min-height: 100vh; min-height: 100svh; }
+body:not([data-view="home"]):not([data-view="projects"]) main { flex: 1; }
+/* The Projects heading is hidden on screen but kept for screen readers. */
+.projects .page-heading { clip-path: inset(50%); height: 1px; margin: 0; overflow: hidden; position: absolute; width: 1px; }
+.project-stage { position: relative; }
+.project-list { transform: none; }
+.project-row { --img-h: min(703px, calc(100svh - 109px)); align-items: end; display: grid; gap: var(--space-4); grid-template-columns: minmax(0, 1fr) minmax(0, 4.45fr) minmax(0, 1fr); padding-bottom: var(--space-5); }
+.project-row[hidden] { display: none !important; }
+.project-media { align-self: end; aspect-ratio: 1274 / 704; background: transparent; grid-column: 2; justify-self: center; overflow: hidden; position: relative; width: min(100%, calc(var(--img-h) * 1274 / 704)); }
+.slide-track { display: flex; height: 100%; transition: transform 1s ease; }
+/* Each image keeps its own proportions, as large as fits in the image area, sitting on its bottom edge
+   (in line with the project details). */
+.slide-track img { flex: 0 0 100%; height: 100%; object-fit: contain; object-position: center bottom; user-select: none; width: 100%; }
+.slide-link { inset: 0; position: absolute; -webkit-user-drag: none; user-select: none; }
+.slide-link:focus-visible { outline: 1px solid #fff; outline-offset: -8px; }
+/* Cursors: circle = click opens the project; circle with arrows = drag for more images; small arrows circle = dragging. */
+.slide-link { cursor: url('/cursors/view.svg') 14 14, pointer; }
+.is-multi .slide-link { cursor: url('/cursors/view-drag.svg') 14 14, grab; }
+body.is-dragging, body.is-dragging * { cursor: url('/cursors/dragging.svg') 14 14, grabbing !important; user-select: none; }
+/* PC: the browser's normal link cursor over project images, no custom icons. */
+@media (min-width: 769px) {
+  .slide-link, .is-multi .slide-link { cursor: pointer; }
+  body.is-dragging, body.is-dragging * { cursor: pointer !important; }
+}
+.project-caption { display: grid; gap: 18px; grid-column: 3; }
+@media (prefers-reduced-motion: reduce) { .slide-track { transition: none; } }
+.project-name h3 { font-size: 22px; font-weight: 400; letter-spacing: -.045em; line-height: 1.05; }
+.project-name p, .project-meta p { color: var(--ink); font-size: 19px; letter-spacing: -.04em; line-height: 1.1; }
+
+/* Project detail */
+.project-detail { margin: 0 auto; max-width: calc(1110px + 2 * var(--gutter)); padding: var(--space-5) var(--gutter) var(--space-7); }
+.detail-back { color: var(--muted-readable); display: inline-block; font-size: 14px; margin-bottom: var(--space-4); }
+.detail-back:hover { color: var(--ink); }
+.detail-header h2 { font-weight: 400; letter-spacing: -.045em; line-height: 1.05; }
+.detail-location, .detail-meta { color: var(--ink); font-size: var(--subtitle-size); letter-spacing: -.04em; line-height: 1.2; }
+.detail-meta { margin-top: var(--space-2); }
+.detail-brief { color: var(--ink); display: grid; font-size: var(--subtitle-size); gap: 1.1em; letter-spacing: -.035em; line-height: 1.15; margin: var(--space-4) 0 var(--space-5); }
+/* Helvetica Light for the project details (location, type | year) and the project description. */
+.project-meta, .detail-brief, .detail-location, .detail-meta { font-weight: 300; }
+/* Project page images: rows of one or two, sized from each image (see src/gallery.js). */
+.detail-gallery { display: block; }
+.g-row { align-items: center; column-gap: 6%; display: flex; }
+.g-row + .g-row { margin-top: 5.8%; }
+.g-item { aspect-ratio: 3 / 2; background: var(--placeholder); flex: none; margin: 0; overflow: hidden; width: var(--w, 60%); }
+.g-item img { display: block; height: 100%; object-fit: cover; width: 100%; }
+.g-item.is-drawing { background: var(--paper-secondary); }
+.g-item.is-drawing img { object-fit: contain; }
+
+/* Studio & Info */
+.text-page { margin: 0 auto; max-width: calc(1110px + 2 * var(--gutter)); min-height: 60vh; padding: var(--space-5) var(--gutter) var(--space-7); }
+.text-sub { color: var(--muted-readable); font-size: var(--subtitle-size); font-weight: 300; margin-top: 6px; }
+/* Same type as the project description. */
+.text-body { color: var(--ink); display: grid; font-size: var(--subtitle-size); font-weight: 300; gap: 1.1em; letter-spacing: -.035em; line-height: 1.35; margin-top: var(--space-6); max-width: 900px; }
+.info-list { border-top: 1px solid var(--line); margin-top: var(--space-6); }
+.info-list div { border-bottom: 1px solid var(--line); display: grid; gap: var(--space-2); grid-template-columns: 1fr 3fr; padding: var(--space-3) 0; font-size: 19px; }
+.info-list dt { color: var(--muted-readable); }
+.info-list dd { font-weight: 300; }
+.info-list a:hover { opacity: .55; }
+
+/* Footer */
+.site-footer { background: var(--paper-secondary); border-top: 1px solid var(--line); color: var(--muted-readable); display: flex; flex-wrap: wrap; font-size: 13px; gap: 4px var(--space-4); justify-content: space-between; padding: var(--space-1) var(--gutter); }
+.site-footer a:hover { color: var(--ink); }
+
+/* Tablet */
+@media (max-width: 768px) {
+  :root { --gutter: 32px; }
+  /* Keep gap plus bottom padding at 46px to preserve the cover height. */
+  .project-row { height: calc(100svh - 168px); display: flex; flex-direction: column; gap: 36px; padding-bottom: 10px; }
+  .project-media { aspect-ratio: auto; flex: 1; min-height: 0; width: 100%; }
+  .project-caption { flex: none; width: 100%; }
+  .project-caption { align-items: start; display: flex; gap: 20px; justify-content: space-between; }
+  .project-meta { text-align: right; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  :root { --gutter: 24px; }
+  /* Mobile header outer margins are 10px; the logo and hamburger keep their existing sizes. */
+  .site-header { align-items: center; grid-template-columns: 1fr auto; grid-template-rows: 47px; padding-left: 10px; padding-right: 10px; padding-top: 10px; }
+  .main-nav { display: none; }
+  /* Same proportions as the desktop design (page 5), with 1 design pixel = 0.8px. */
+  /* The logo is a little smaller (1 design pixel = 0.65px); --logo-studio is the size of its "studio.". */
+  :root { --u: 0.8px; --title-size: calc(34 * var(--u)); --subtitle-size: calc(18.5 * var(--u)); --logo-u: 0.65px; --logo-studio: calc(34 * var(--logo-u)); --type-primary-size: calc(var(--logo-studio) * .8); --type-secondary-size: calc(var(--logo-studio) * .75); --studio-sub-size: calc(var(--logo-studio) * 39 / 53 * .75); }
+  .wordmark { margin-bottom: 0; width: 168px; }
+  /* Smaller burger icon */
+  /* Nudged down so it lines up with the middle of the lettering of "pmd studio." rather than its line box. */
+  .menu-toggle { height: 20px; width: 20px; gap: 5px; transform: translateY(calc(6 * var(--logo-u))); }
+  .menu-toggle span { height: 1.25px; width: 18px; }
+  .menu-open .menu-toggle span:first-child { transform: translateY(6.25px) rotate(45deg); }
+  .menu-open .menu-toggle span:last-child { transform: translateY(-6.25px) rotate(-45deg); }
+  /* Menu: links look the same size as the logo's "studio." (Helvetica's lowercase is taller than
+     Cormorant's, 53% vs 39% of the font size, so it is set smaller); email and Instagram are 75% of that. */
+  .menu-inner { grid-template-columns: 1fr; padding-left: 10px; padding-top: 150px; }
+  .menu-links a { font-size: calc(var(--logo-studio) * 39 / 53); }
+  .menu-links .projects-nav-item { display: grid; grid-template-columns: max-content minmax(0, 1fr); }
+  .menu-links .projects-nav-toggle { grid-area: 1 / 2 / 2 / 3; left: 0; }
+  .menu-links .projects-nav-links { display: none; grid-column: 1 / -1; padding-inline-start: 16px; position: static; }
+  .menu-links .projects-nav-toggle[aria-expanded="true"] + .projects-nav-links { display: grid; }
+  @starting-style {
+    .menu-links .projects-nav-toggle[aria-expanded="true"] + .projects-nav-links { opacity: 0; }
+  }
+  .menu-group { font-size: calc(var(--logo-studio) * 39 / 53 * .75); }
+  .projects { padding-top: var(--space-4); }
+  .project-row { height: calc(100svh - 113px); }
+  .page-heading { margin-bottom: var(--space-5); }
+  .project-caption { align-items: end; gap: 12px; } /* type | year sits on the same line as the location */
+  /* Projects page: image fills the height between header and caption, project name looks the size of the logo's "studio.",
+     location in Helvetica Light at 75% of that. */
+  .project-media { flex: 1; min-height: 0; }
+  .slide-track img { object-position: center; } /* phones: image centred in its area */
+  /* Like PC: project names in the logo font at the size of "studio."; details Helvetica Light at 75% of the
+     name size used elsewhere on phones. */
+  .project-name h3 { font-family: var(--serif); font-size: var(--logo-studio); font-weight: 400; letter-spacing: -.02rem; }
+  .project-name p { font-size: calc(var(--logo-studio) * 39 / 53 * .75); font-weight: 300; }
+  .project-meta p { font-size: calc(var(--logo-studio) * 39 / 53 * .75); }
+  .project-meta p { margin-left: auto; }
+  .project-detail { padding-top: var(--space-4); }
+  /* Project page: name looks the size of the logo's "studio."; location, type | year and description 75% of that. */
+  .detail-header h2 { font-family: var(--serif); font-size: var(--logo-studio); font-weight: 400; letter-spacing: -.02rem; }
+  .detail-location, .detail-meta { color: var(--ink); font-size: calc(var(--logo-studio) * 39 / 53 * .75); }
+  .detail-back { font-size: calc(var(--logo-studio) * 39 / 53 * .75); }
+  .detail-meta span { display: block; }
+  .detail-meta .meta-sep { display: none; }
+  .detail-brief { font-size: calc(var(--logo-studio) * 39 / 53 * .75); line-height: 1.12; margin: 26px 0 40px; }
+  .g-row { align-items: flex-start; flex-direction: column; row-gap: 12vw; }
+  .g-row + .g-row { margin-top: 12vw; }
+  .g-item { width: var(--mw, 100%); }
+  .info-list div { grid-template-columns: 1fr; gap: 4px; font-size: 17px; }
+  /* Studio page: same type as a project page. */
+  .text-page[data-page="studio"] h2 { font-family: var(--serif); font-size: var(--logo-studio); font-weight: 400; letter-spacing: -.02rem; line-height: 1.05; }
+  .text-page[data-page="studio"] .text-sub { color: var(--ink); font-size: calc(var(--logo-studio) * 39 / 53 * .75); font-weight: 300; letter-spacing: -.04em; line-height: 1.1; margin-top: 0; }
+  .text-body { line-height: 1.12; margin-top: 40px; }
+  .text-page[data-page="studio"] .text-body { font-size: calc(var(--logo-studio) * 39 / 53 * .75); margin-top: 26px; }
+}
+
+/* Desktop: sizes taken from the 1920×1080 design (page 5), scaled with the window width.
+   1 design pixel = var(--u). */
+@media (min-width: 769px) {
+  :root { --u: calc(100vw / 1920); --title-size: calc(34 * var(--u)); --subtitle-size: calc(18.5 * var(--u)); --name-size: calc(var(--title-size) * 39 / 53); --studio-sub-size: calc(var(--name-size) * .75); }
+  /* Desktop outer margins are 20px; row alignment accounts for the SVG's transparent bottom edge. */
+  .site-header { align-items: end; flex: 0 0 85px; grid-template-rows: 65px; height: 85px; padding: 20px 20px 0; }
+  .wordmark { margin-bottom: -14px; width: 210px; }
+  .wordmark { gap: calc(17 * var(--u)); }
+  .wordmark span { font-size: calc(57 * var(--u)); }
+  .wordmark small { font-size: var(--title-size); }
+  .main-nav { font-size: var(--subtitle-size); gap: 55px; letter-spacing: -.045em; padding-top: 42px; }
+  .main-nav a[aria-current] { opacity: 1; }
+  .main-nav a:hover { opacity: .55; }
+
+  .project-detail, .text-page { padding-top: calc(69.4 * var(--u)); }
+  /* No heading on Projects: the image area starts right under the header and the image sits in its middle. */
+  .projects { padding-top: 0; }
+  .page-heading h2, .text-page h2 { letter-spacing: -.05em; line-height: 1; }
+
+  .project-row {
+    --img-h: min(calc(703 * var(--u)), calc(100svh - 109px));
+    /* Image centred on the page (equal columns either side), details lined up with its bottom edge. */
+    align-content: center; align-items: center; column-gap: calc(31 * var(--u));
+    grid-template-columns: minmax(0, 1fr) calc(1275 * var(--u)) minmax(0, 1fr);
+    grid-template-rows: var(--img-h); padding-bottom: 0;
+  }
+  .project-row { position: relative; }
+  .project-media { align-self: center; aspect-ratio: 1275 / 703; height: var(--img-h); justify-self: center; width: auto; max-width: 100%; }
+  .project-caption { gap: calc(24 * var(--u)); }
+  /* Project details: name looks the size of the logo's "studio." (Helvetica's lowercase is taller than
+     Cormorant's, so it is set at 39/53 of it); everything else Helvetica Light at 75% of that. */
+  .project-name h3 { font-family: var(--serif); font-size: var(--title-size); font-weight: 400; letter-spacing: -.02rem; line-height: 1; } /* same font and size as the project page title */
+  .project-name p { margin-top: calc(1 * var(--u)); }
+  /* Project page: same scale as the Projects page details. */
+  /* Same font and size as "studio." in the logo. */
+  .detail-header h2 { font-family: var(--serif); font-size: var(--title-size); font-weight: 400; letter-spacing: -.02rem; }
+  .detail-location, .detail-meta, .detail-brief { font-size: calc(var(--name-size) * .75); }
+  .detail-location, .detail-meta { color: var(--ink); } /* black, like the title */
+  .detail-meta span { display: block; }
+  .detail-meta .meta-sep { display: none; }
+  /* Studio page: same type and spacing as a project page (title in the logo font, black Helvetica Light
+     location, grey description), in a centred column the width of a typical project page's. */
+  .text-page[data-page="studio"] { --text-w: calc(min(100%, (100svh - 2 * var(--gutter)) * 1.5) * .9); }
+  .text-page[data-page="studio"] h2 { font-family: var(--serif); font-size: var(--title-size); font-weight: 400; letter-spacing: -.02rem; line-height: 1.05; margin-left: calc((100% - var(--text-w)) / 2); margin-top: calc(var(--name-size) * .75 * 1.2 + 28px); }
+  .text-page[data-page="studio"] .text-sub { color: var(--ink); font-size: calc(var(--name-size) * .75); font-weight: 300; letter-spacing: -.04em; line-height: 1.1; margin: 0 0 0 calc((100% - var(--text-w)) / 2); }
+  .text-page[data-page="studio"] .text-body { font-size: calc(var(--name-size) * .75); gap: 1.1em; letter-spacing: -.035em; line-height: 1.05; margin: 30px auto 50px; max-width: none; width: var(--text-w); }
+  /* First image: centred, as wide as the text column allows while still fitting the screen height. */
+  .detail-gallery .g-row:first-child { justify-content: center; }
+  .detail-gallery .g-row:first-child .g-item { width: min(100%, calc((100svh - 2 * var(--gutter)) * var(--r, 1.5))); }
+  /* Title, details and description share a centred column 10% narrower than that first image. */
+  .project-detail { --text-w: calc(min(100%, (100svh - 2 * var(--gutter)) * var(--r1, 1.5)) * .9); }
+  .project-detail > .detail-header { margin-left: calc((100% - var(--text-w)) / 2); }
+  .project-detail > .detail-brief { margin-inline: auto; width: var(--text-w); }
+  /* "All projects": 75% of the project name size, near the left edge of the page. Taken out of the
+     flow, so the title below keeps its place via the top margin. */
+  .project-detail > .detail-back { font-size: calc(var(--name-size) * .75); left: calc(72 * var(--u)); line-height: 1.2; margin: 0; position: absolute; }
+  .project-detail > .detail-header { margin-top: calc(var(--name-size) * .75 * 1.2 + 28px); }
+  .project-name p, .project-meta p { font-size: calc(var(--name-size) * .75); font-weight: 300; letter-spacing: -.045em; line-height: 1.05; }
+  .project-meta { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: calc(14 * var(--u)); }
+  .project-meta p { flex-basis: 100%; }
+}
+
+/* All project rows share the same presentation area. */
+html.projects-presentation { overflow: hidden; }
+body[data-view="projects"] .site-footer { display: none; }
+.projects { padding-bottom: 0; touch-action: pinch-zoom; }
+.projects .project-list { display: grid; }
+.projects .project-row { grid-area: 1 / 1; opacity: 0; pointer-events: none; }
+.projects .project-row.is-current { opacity: 1; pointer-events: auto; z-index: 1; }
+@media (min-width: 769px) {
+  body[data-view="projects"] .site-header {
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+  }
+  body[data-view="projects"] .projects {
+    padding-top: 24px;
+  }
+  body[data-view="projects"] .project-row {
+    height: calc(100svh - 109px);
+    min-height: calc(100svh - 109px);
+    padding-bottom: 0;
+  }
+  body[data-view="projects"] .project-row > .project-caption {
+    bottom: 48px;
+    grid-column: auto;
+    position: absolute;
+    right: 0;
+    width: calc((100% - 1275 * var(--u) - 62 * var(--u)) / 2);
+  }
+  body[data-view="projects"] .project-media .slide-track img {
+    object-position: center center;
+  }
+}
+
+/* Page transitions (see navigate() in src/main.js). */
+.site-header { view-transition-name: site-header; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .45s; animation-timing-function: ease; }
+
+/* Opening a project: the new page rises in; leaving one: it drops away. */
+html[data-transition="enter-project"]::view-transition-old(root) { animation: vt-fade-out .35s ease both; }
+html[data-transition="enter-project"]::view-transition-new(root) { animation: vt-rise-in .75s cubic-bezier(.2, .7, .2, 1) both; }
+html[data-transition="leave-project"]::view-transition-old(root) { animation: vt-drop-out .5s cubic-bezier(.4, 0, .6, 1) both; }
+html[data-transition="leave-project"]::view-transition-new(root) { animation: vt-fade-in .5s ease .1s both; }
+@keyframes vt-rise-in { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@keyframes vt-drop-out { to { opacity: 0; transform: translateY(40px); } }
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+
+/* Project page content arrives in sequence (order set with --i in the markup). */
+.project-detail.is-entering .stagger { animation: stagger-in .7s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(.15s + var(--i, 0) * .09s); }
+@keyframes stagger-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* Project page reveal: fade up as items scroll into view. */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1); }
+.reveal.is-revealed { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .project-detail.is-entering .stagger { animation: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
+/* Typography refinement: keep existing layout and spacing while using the supplied local faces. */
+.page-heading h2,
+.text-page h2,
+.text-page[data-page="studio"] h2,
+.detail-header h2,
+.project-name h3 { font-size: var(--type-primary-size); }
+.main-nav { font-size: var(--type-secondary-size); }
+.main-nav,
+.menu-links a { font-size: var(--studio-sub-size); }
+@media (max-width: 599px) {
+  .menu-links > a, .menu-links .projects-nav-item > a { font-size: calc(var(--studio-sub-size) + 2px); }
+  .menu-links .projects-nav-item .projects-nav-links a { font-size: 14px; }
+}
+.project-name h3,
+.detail-header h2 { color: var(--color-text-primary); font-family: 'SangBleu Empire'; font-weight: 400; }
+.page-heading h2,
+.text-page h2 { font-family: 'SangBleu Empire'; }
+.project-name p,
+.detail-location,
+.detail-meta,
+.text-sub,
+.label { font-size: var(--type-secondary-size); }
+.project-name p,
+.project-meta p { font-size: var(--studio-sub-size); }
+.project-name p,
+.detail-location,
+.detail-meta { font-size: var(--studio-sub-size); }
+.project-name p,
+.detail-location { color: #000000; font-family: var(--sans-light); font-weight: 300; }
+.project-meta p,
+.detail-meta { color: var(--color-text-secondary); font-family: var(--sans-light); font-weight: 300; }
+.detail-brief,
+.text-body,
+.info-list div { color: #77736E; font-family: var(--sans-light); font-size: 15px; font-weight: 300; line-height: 1.5; }
+.detail-brief { font-size: 15px; }
+.text-body,
+.text-page[data-page="studio"] .text-body { font-size: 15px; }
+.project-detail .detail-header h2 { font-size: var(--type-primary-size); font-family: 'SangBleu Empire'; font-weight: 400; }
+.info-list dt { color: #77736E; }
+.text-page[data-page="info"] h2 { font-family: var(--serif); font-size: var(--type-primary-size); font-weight: 400; letter-spacing: -.02rem; line-height: 1.05; }
+.text-page[data-page="info"] .text-sub { font-size: 16px; }
+@media (max-width: 768px) {
+  .text-page[data-page="info"] h2 { font-size: var(--logo-studio); }
+  .text-page[data-page="info"] .text-sub { font-size: calc(var(--logo-studio) * 39 / 53 * .75); }
+}
+@media (min-width: 769px) {
+  .text-page[data-page="info"] { --text-w: calc(min(100%, (100svh - 2 * var(--gutter)) * 1.5) * .9); }
+  .text-page[data-page="info"] h2 { font-family: var(--serif); font-size: var(--type-primary-size); font-weight: 400; letter-spacing: -.02rem; line-height: 1.05; margin-left: calc((100% - var(--text-w)) / 2); margin-top: calc(var(--name-size) * .75 * 1.2 + 28px); }
+  .text-page[data-page="info"] .text-sub { color: var(--ink); font-size: calc(var(--name-size) * .75); font-weight: 300; letter-spacing: -.04em; line-height: 1.1; margin: 0 0 0 calc((100% - var(--text-w)) / 2); }
+}

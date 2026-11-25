@@ -1,0 +1,196 @@
+{
+  "site": {
+    "name": "Preethish Mukunthan Design Studio",
+    "headerName": "pmd",
+    "headerSubline": "studio.",
+    "location": "Tiruppur, Tamil Nadu",
+    "intro": "Preethish Mukunthan Design Studio is an interior architecture practice creating warm, considered spaces for living, gathering, and becoming.",
+    "email": "preethishmukunthandesign@gmail.com",
+    "instagram": "@pmd.studio__",
+    "footerNote": "Architecture | Interior | Objects",
+    "studio": [
+      "Coming Soon"
+    ],
+    "heroImage": "/hero.jpg",
+    "heroImageMobile": "/hero-mobile.jpg",
+    "heroAlt": "Bedroom with timber wall panels, pendant lights and a low upholstered bed"
+  },
+  "navigation": [
+    {
+      "label": "Studio",
+      "target": "studio"
+    },
+    {
+      "label": "Projects",
+      "target": "projects"
+    },
+    {
+      "label": "Info",
+      "target": "info"
+    }
+  ],
+  "categories": [
+    "Architecture",
+    "Interior",
+    "Product"
+  ],
+  "projects": [
+    {
+      "title": "Anthill",
+      "category": "Architecture",
+      "typology": "Residential",
+      "location": "Erode, Tamil Nadu",
+      "year": "2025–Ongoing",
+      "status": "on-going",
+      "image": "/project-assets/anthill/01-exterior-day-cover.png",
+      "alt": "Anthill exterior during the day",
+      "brief": [
+        "Anthill draws inspiration from the spatial organisation of an anthill, where interconnected spaces form a larger whole while maintaining their own sense of privacy and identity. The residence is organised around a series of private pockets, with individual landscaped spaces extending from the bedrooms to create intimate connections with nature.",
+        "Conceived entirely on the ground floor, the house explores a contemporary expression of tropical living through pitched roofs, sheltered verandahs and interconnected spaces. An earthy material palette of Kota stone, terracotta and natural granite, complemented by extensive landscape, establishes a relationship between architecture, materiality and the natural environment."
+      ],
+      "gallery": [
+        {
+          "image": "/project-assets/anthill/02-living-room-wide.png",
+          "alt": "Anthill wide living room view"
+        },
+        {
+          "image": "/project-assets/anthill/03-living-room-detail.png",
+          "alt": "Anthill living room detail"
+        },
+        {
+          "image": "/project-assets/anthill/04-bedroom-angle.png",
+          "alt": "Anthill bedroom angled view"
+        },
+        {
+          "image": "/project-assets/anthill/05-bedroom-front.png",
+          "alt": "Anthill bedroom front view"
+        },
+        {
+          "image": "/project-assets/anthill/06-exterior-night.png",
+          "alt": "Anthill exterior at night"
+        }
+      ]
+    },
+    {
+      "title": "Urban Court",
+      "category": "Architecture",
+      "typology": "Residential",
+      "location": "Coimbatore, Tamil Nadu",
+      "year": "2024 – Proposed",
+      "status": "proposed",
+      "image": "/project-assets/urban-court/01-exterior-dusk-cover.png",
+      "alt": "Urban Court exterior at dusk",
+      "brief": [
+        "Set within a compact urban plot surrounded by closely built structures, Urban Court explores the possibility of bringing landscape into the heart of the home. Rather than treating greenery as an addition to the building, the design integrates it into the spatial organisation, allowing the landscape to extend beyond the ground level and become part of the building's everyday experience.",
+        "Layered volumes, framed views and carefully positioned openings establish a visual relationship between the interior and the planted spaces, creating a sense of openness within a dense urban setting."
+      ],
+      "gallery": [
+        {
+          "image": "/project-assets/urban-court/02-entrance-court.png",
+          "alt": "Urban Court entrance courtyard"
+        },
+        {
+          "image": "/project-assets/urban-court/03-dining-area.png",
+          "alt": "Urban Court dining area"
+        },
+        {
+          "image": "/project-assets/urban-court/04-living-area.png",
+          "alt": "Urban Court living area"
+        },
+        {
+          "image": "/project-assets/urban-court/05-bedroom.png",
+          "alt": "Urban Court bedroom"
+        }
+      ]
+    },
+    {
+      "title": "320 NSR",
+      "category": "Architecture",
+      "typology": "Commercial – Retail",
+      "location": "Coimbatore, Tamil Nadu",
+      "year": "2025–Ongoing",
+      "status": "on-going",
+      "image": "/project-assets/320-nsr/01-three-quarter-exterior-cover.png",
+      "alt": "320 NSR three-quarter exterior view",
+      "brief": [
+        "Scope: Façade renovation only.",
+        "The renovation of 320 NSR focuses on transforming the building's existing façade into a distinctive commercial identity. A terracotta-toned perforated metal screen forms the defining element, introducing texture, depth and a degree of visual permeability to the elevation.",
+        "Layered horizontal projections, integrated greenery and a generous roof canopy bring together the various elements of the façade, creating a renewed street presence while retaining the scope of intervention primarily to the building exterior."
+      ],
+      "gallery": [
+        {
+          "image": "/project-assets/320-nsr/02-front-facade.png",
+          "alt": "320 NSR front façade"
+        }
+      ]
+    },
+    {
+      "title": "R.home",
+      "category": "Interior",
+      "typology": "Interior",
+      "location": "Erode, Tamil Nadu",
+      "year": "2025–Ongoing",
+      "status": "on-going",
+      "image": "/project-assets/r-home/01-living-room-tv-wall-cover.png",
+      "alt": "R.home living room and television wall",
+      "brief": [
+        "R.home explores a warm and understated approach to residential interiors, where natural textures, timber surfaces and a muted palette establish a calm domestic atmosphere. The spaces are composed through carefully integrated furniture, considered lighting and framed views towards planted outdoor areas.",
+        "Rather than relying on elaborate detailing, the design draws its character from material continuity, proportion and the relationship between light, furniture and everyday living."
+      ],
+      "gallery": [
+        {
+          "image": "/project-assets/r-home/02-living-room-courtyard-view.png",
+          "alt": "R.home living room with courtyard view"
+        },
+        {
+          "image": "/project-assets/r-home/03-bedroom-one.png",
+          "alt": "R.home bedroom one"
+        },
+        {
+          "image": "/project-assets/r-home/04-bedroom-two.png",
+          "alt": "R.home bedroom two"
+        },
+        {
+          "image": "/project-assets/r-home/05-dining-area.png",
+          "alt": "R.home dining area"
+        }
+      ]
+    },
+    {
+      "title": "Stacked",
+      "category": "Architecture",
+      "typology": "Residential",
+      "location": "Coimbatore, Tamil Nadu",
+      "year": "2024–Ongoing",
+      "status": "on-going",
+      "image": "/project-assets/stacked/01-front-elevation-cover.png",
+      "alt": "Stacked front elevation",
+      "brief": [
+        "Conceived for a compact urban plot with a demanding functional brief, Stacked explores the arrangement of spaces through a composition of vertically layered volumes. The architecture responds to the constraints of the site by carefully stacking and interlocking spaces, allowing the available footprint to accommodate the required functions while establishing a distinct architectural identity.",
+        "Projecting horizontal planes, textured surfaces and timber-finished soffits bring depth and contrast to the exterior. The interior design was developed as a separate proposal only, exploring warm materials, restrained detailing and connected living spaces."
+      ],
+      "gallery": [
+        {
+          "image": "/project-assets/stacked/02-corner-perspective.png",
+          "alt": "Stacked corner perspective"
+        },
+        {
+          "image": "/project-assets/stacked/03-living-room-proposal.png",
+          "alt": "Interior Proposal only — Stacked living room perspective"
+        },
+        {
+          "image": "/project-assets/stacked/04-dining-kitchen-proposal.png",
+          "alt": "Interior Proposal only — Stacked dining and kitchen perspective"
+        },
+        {
+          "image": "/project-assets/stacked/05-living-dining-proposal.png",
+          "alt": "Interior Proposal only — Stacked living and dining perspective"
+        },
+        {
+          "image": "/project-assets/stacked/06-play-area-proposal.png",
+          "alt": "Interior Proposal only — Stacked play area perspective"
+        }
+      ]
+    }
+  ]
+}

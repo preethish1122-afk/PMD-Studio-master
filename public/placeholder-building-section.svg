@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" fill="none">
+  <rect width="1200" height="760" fill="#f3f1ea"/>
+  <g stroke="#45463f" stroke-width="5">
+    <path d="M190 580h820M260 580V285l340-145 340 145v295"/>
+    <path d="M260 315h680M260 430h680M260 580h680"/>
+    <path d="M600 140v440M430 315v115m340-115v115M340 430v150m520-150v150"/>
+    <path d="M220 600h760M300 285h600"/>
+  </g>
+  <g stroke="#9a9a8f" stroke-width="2">
+    <path d="M260 640h680M260 625v30m680-30v30M1010 285v295m-15-295h30m-30 295h30"/>
+    <path d="M365 365h105m-105 20h105m255-20h105m-105 20h105"/>
+  </g>
+  <g fill="#77776e" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">
+    <text x="500" y="700">BUILDING SECTION · PLACEHOLDER</text>
+    <text x="305" y="410">LIVING</text>
+    <text x="660" y="410">DINING</text>
+    <text x="465" y="555">ATRIUM</text>
+  </g>
+</svg>

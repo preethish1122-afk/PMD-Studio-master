@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" fill="none">
+  <rect width="1200" height="760" fill="#f3f1ea"/>
+  <g stroke="#45463f" stroke-width="5">
+    <path d="M235 145h730v470H235z"/>
+    <path d="M235 385h270v230m0-230h240v230m0-230h220M745 145v240M505 145v240"/>
+    <path d="M285 200h160v100H285zM555 200h135v100H555zM795 200h120v100H795z"/>
+    <path d="M285 450h160v110H285zM555 450h135v110H555zM795 450h120v110H795z"/>
+  </g>
+  <g stroke="#9a9a8f" stroke-width="2">
+    <path d="M235 105h730M235 90v30m730-30v30M195 145v470m-15-470h30m-30 470h30"/>
+    <path d="M315 230h100m-100 18h100M585 230h75m-75 18h75M820 480h70m-70 18h70"/>
+  </g>
+  <g fill="#77776e" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">
+    <text x="516" y="685">UPPER FLOOR · PLACEHOLDER</text>
+    <text x="322" y="355">BEDROOM</text>
+    <text x="585" y="355">STUDY</text>
+    <text x="815" y="355">BEDROOM</text>
+  </g>
+</svg>
